@@ -1,0 +1,53 @@
+package news.agoda.com.sample;
+
+import com.example.app_domain.NewsFeedEntityDomainMapper;
+import com.example.app_domain.model.MultiMediumDomain;
+
+import junit.framework.Assert;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.List;
+
+import com.example.app_domain.model.NewsEntity;
+
+public class MediaEntityTest {
+
+    private static final String URL = "http://static01.nyt.com/images/2015/08/18/business/18EMPLOY/18EMPLOY-thumbLarge.jpg";
+    private NewsFeedEntityDomainMapper newsFeedEntityDomainMapper;
+
+    @Before
+    public void setUp() {
+        newsFeedEntityDomainMapper = new NewsFeedEntityDomainMapper();
+    }
+
+    @Test
+    public void validateImageUrl() {
+        NewsEntity newsEntity = newsFeedEntityDomainMapper.parseResponse(MockResponse.newsFeedResponse);
+        List<MultiMediumDomain> multiMediumDomains = newsFeedEntityDomainMapper.mapMedia(newsEntity.getResults().get(0).getMultimedia());
+        Assert.assertTrue(multiMediumDomains.get(0).getUrl().equals(newsEntity.getResults().get(0).getMultimedia().get(0).getUrl()));
+    }
+
+    @Test
+    public void validateMutliMediaSize() {
+        NewsEntity newsEntity = newsFeedEntityDomainMapper.parseResponse(MockResponse.newsFeedResponseEmptyProperties);
+        List<MultiMediumDomain> multiMediumDomains = newsFeedEntityDomainMapper.mapMedia(newsEntity.getResults().get(0).getMultimedia());
+        Assert.assertEquals(multiMediumDomains.size(), 4);
+    }
+
+    @Test
+    public void validateEmptyImageUrl() {
+        NewsEntity newsEntity = newsFeedEntityDomainMapper.parseResponse(MockResponse.newsFeedResponseEmptyProperties);
+        List<MultiMediumDomain> multiMediumDomains = newsFeedEntityDomainMapper.mapMedia(newsEntity.getResults().get(0).getMultimedia());
+        Assert.assertTrue(multiMediumDomains.get(0).getUrl().equals(""));
+    }
+
+    @Test
+    public void validateEmptyMultimedia() {
+        NewsEntity newsEntity = newsFeedEntityDomainMapper.parseResponse(MockResponse.newsFeedResponseEmptyProperties);
+        List<MultiMediumDomain> multiMediumDomains = newsFeedEntityDomainMapper.mapMedia(newsEntity.getResults().get(3).getMultimedia());
+        Assert.assertEquals(multiMediumDomains.size(), 0);
+    }
+
+}
