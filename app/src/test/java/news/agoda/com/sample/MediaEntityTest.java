@@ -1,7 +1,7 @@
 package news.agoda.com.sample;
 
-import com.example.app_domain.NewsFeedEntityDomainMapper;
-import com.example.app_domain.model.MultiMediumDomain;
+import domain.news.agoda.com.NewsFeedEntityDomainMapper;
+import domain.news.agoda.com.model.MultiMediumDomain;
 
 import junit.framework.Assert;
 
@@ -10,7 +10,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-import com.example.app_domain.model.NewsEntity;
+import domain.news.agoda.com.model.NewsEntity;
 
 public class MediaEntityTest {
 

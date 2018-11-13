@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/item_list"
-        android:name="news.agoda.com.sample.view.feed.fragment.NewsFeedFragment"
+        android:name="app.news.agoda.com.view.feed.fragment.NewsFeedFragment"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"

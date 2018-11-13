@@ -1,7 +1,7 @@
 package news.agoda.com.sample;
 
-import com.example.app_domain.NewsFeedEntityDomainMapper;
-import com.example.app_domain.usecase.NewsFeedInteractorImpl;
+import domain.news.agoda.com.NewsFeedEntityDomainMapper;
+import domain.news.agoda.com.NewsFeedInteractor;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -22,8 +22,8 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.internal.schedulers.ExecutorScheduler;
 import io.reactivex.plugins.RxJavaPlugins;
-import news.agoda.com.sample.view.feed.fragment.NewsFeedFragView;
-import news.agoda.com.sample.view.feed.fragment.NewsFeedFragmentPresenter;
+import app.news.agoda.com.view.feed.fragment.NewsFeedFragView;
+import app.news.agoda.com.view.feed.fragment.NewsFeedFragmentPresenter;
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 
@@ -31,7 +31,7 @@ public class NewsFeedPresenterTest {
 
     NewsFeedFragmentPresenter newsFeedFragmentPresenter;
     @Mock
-    NewsFeedInteractorImpl newsFeedInteractor;
+    NewsFeedInteractor newsFeedInteractor;
     @Mock
     NewsFeedEntityDomainMapper newsFeedEntityDomainMapper;
     @Mock

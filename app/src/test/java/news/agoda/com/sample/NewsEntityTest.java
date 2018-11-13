@@ -1,13 +1,13 @@
 package news.agoda.com.sample;
 
-import com.example.app_domain.NewsFeedEntityDomainMapper;
+import domain.news.agoda.com.NewsFeedEntityDomainMapper;
 
 import junit.framework.Assert;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import com.example.app_domain.model.NewsEntity;
+import domain.news.agoda.com.model.NewsEntity;
 
 public class NewsEntityTest {
 
